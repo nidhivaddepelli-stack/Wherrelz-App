@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EntryModel>
+
+<br>
+<h2>Account Management Entries</h2>
+<br>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show">
+        @TempData["SuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert"> &times; </button>
+    </div>
+}
+
+<a asp-action="Create" asp-controller="Entry" class="btn btn-primary">
+    + Add Entry
+</a>
+<br>
+<br>
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <table class="table table-hover">
+
+            <thead class="table-light">
+                <tr>
+                    <th>Account</th>
+                    <th>Narration</th>
+                    <th>Currency</th>
+                    <th>Credit</th>
+                    <th>Debit</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Account</td>
+                        <td>@item.Narration</td>
+                        <td>@item.Currency</td>
+                        <td>@item.Credit</td>
+                        <td>@item.Debit</td>
+                        <td>
+                            <a asp-controller="Entry" asp-action="Create" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="Edit"> <i class="bi bi-pencil"></i> </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+
+@* //for icons *@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

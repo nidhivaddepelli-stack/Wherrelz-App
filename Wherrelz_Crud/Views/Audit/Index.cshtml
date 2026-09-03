@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AuditModel>
+
+<br>
+<h2>Audit Entries</h2>
+<br>
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <table class="table table-hover">
+
+            <thead class="table-light">
+                <tr>
+                    <th>Table</th>
+                    <th>Field</th>
+                    <th>OldValue</th>
+                    <th>NewValue</th>
+                    <th>ChangedBy</th>
+                    <th>ChangedAt</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Table</td>
+                        <td>@item.Field</td>
+                        <td>@item.OldValue</td>
+                        <td>@item.NewValue</td>
+                        <td>@item.ChangedBy</td>
+                        <td>@item.ChangedAt</td>
+                        
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+

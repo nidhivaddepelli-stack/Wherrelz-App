@@ -1,0 +1,40 @@
+﻿@model Wherrelz_Crud.ViewModels.LoginVM
+
+<br></br>
+<h4 class="text-center">
+    <strong>Hi! Welcome to Wherrelz IT Solutions</strong>
+</h4>
+
+<div class ="container mt-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <form asp-controller="Login" asp-action="Index" method="post">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="LoginId" class="form-label"></label><span class="text-danger">*</span>
+                            <input asp-for="LoginId" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label"></label><span class="text-danger">*</span>
+                            <input asp-for="Password" class="form-control" required />
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Login
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

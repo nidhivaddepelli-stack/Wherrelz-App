@@ -1,0 +1,70 @@
+﻿@model Wherrelz_Crud.ViewModels.DashboardVM
+
+<div class="container mt-4">
+
+    <h2>Dashboard Of Accounting Management</h2>
+
+    <div class="row mt-4">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Total Entries</h6>
+                    <h3>@Model.TotalEntries</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Total Credit</h6>
+                    <h3>₹ @Model.TotalCredit</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Total Debit</h6>
+                    <h3>₹ @Model.TotalDebit</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Balance</h6>
+                    <h3>₹ @Model.Balance</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card shadow-sm mt-4">
+        <div class="card-header">
+            <strong>Credit vs Debit</strong>
+        </div>
+
+        <div class="card-body text-center">
+            <div style="max-width:350px; margin:auto;">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    new Chart(document.getElementById('myChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Credit', 'Debit'],
+            datasets: [{
+                data: [@Model.HighestCredit, @Model.HighestDebit]
+            }]
+        }
+    });
+</script>
